@@ -1,0 +1,12 @@
+%syntax-version=1.0.0
+%project=my_bookshelf
+
+init 2021-05-17T09:27:15Z Dimitri Martin <dimmartin32@gmail.com> # Structure de base de bdd
+fix_init 2021-05-17T11:47:04Z Dimitri Martin <dimmartin32@gmail.com> # modification sur la structure de base
+author_unique 2021-05-18T07:43:29Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de la contrainte unique sur author
+function 2021-05-18T08:05:53Z Dimitri Martin <dimmartin32@gmail.com> # ajout de fonction a la bdd
+more_function 2021-05-18T16:29:51Z Dimitri Martin <dimmartin32@gmail.com> # Ajout des fonctions update et delete
+delete-cascade 2021-05-18T16:52:03Z Dimitri Martin <dimmartin32@gmail.com> # Ajout des deletes cascades sur les tables
+function_publisher 2021-05-19T09:05:46Z Dimitri Martin <dimmartin32@gmail.com> # Ajout publisher fonction
+genre 2021-05-19T09:31:42Z Dimitri Martin <dimmartin32@gmail.com> # Ajout de la fonction pour les genres
+function_book 2021-05-19T10:14:03Z Dimitri Martin <dimmartin32@gmail.com> # Ajout des fonctions sql pour les livres

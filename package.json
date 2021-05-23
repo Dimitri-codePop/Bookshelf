@@ -1,0 +1,39 @@
+{
+  "name": "My bookshelf",
+  "version": "1.0.0",
+  "description": "Ceci est une API de gestion de bibliothèque ouverte à tous.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "node-dev .",
+    "start": "node .",
+    "import": "psql -f ./data/seeding.sql -d my_bookshelf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dimitri-codePop/bookshelf.git"
+  },
+  "keywords": [
+    "API",
+    "bookshelf",
+    "books management",
+    "public"
+  ],
+  "author": "@Dimitri Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimitri-codePop/bookshelf/issues"
+  },
+  "homepage": "https://github.com/Dimitri-codePop/bookshelf#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-swagger-generator": "^1.1.17",
+    "joi": "^17.4.0",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^9.0.2"
+  }
+}
