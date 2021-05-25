@@ -18,7 +18,6 @@ const controllerFactory = {
             }
         }
     },
-
     getById(entityName) {
         return async (request, response, next) => {
             try {
@@ -27,7 +26,6 @@ const controllerFactory = {
                 if (!entity) {
                     return next();
                 }
-
                 response.json({ data: entity.dataValues });
             } catch (error) {
                 console.trace(error);

@@ -4,11 +4,10 @@ BEGIN;
 
 -- XXX Add DDLs here.
 
-
 CREATE FUNCTION add_book(book json) RETURNS book AS $$
+WITH inserted_book AS (    
     INSERT INTO "book"
-    ("reference", "title", "locale", "year", 
-    "page_count", "chapter_count", "front_cover", "cover", "publisher_id")
+    ("reference", "title", "locale", "year", "page_count", "chapter_count", "front_cover", "cover", "publisher_id")
     VALUES(
         (book->>'reference'),
         (book->>'title'),
@@ -19,7 +18,19 @@ CREATE FUNCTION add_book(book json) RETURNS book AS $$
         (book->>'front_cover'),
         (book->>'cover'),
         (book->>'publisher_id')::int
-    ) RETURNING *;
+    ) RETURNING *
+), author AS (
+    INSERT INTO "book_has_author"
+    ("book_id", "author_id")
+    SELECT inserted_book.id, author.id::text::int
+    FROM inserted_book, json_array_elements(book->'author_id') AS author(id)
+), genre AS (
+    INSERT INTO "book_has_genre"
+    ("book_id", "genre_id")
+    SELECT inserted_book.id, genre.id::text::int
+    FROM inserted_book, json_array_elements(book->'genre_id') AS genre(id)
+)
+SELECT * FROM inserted_book;
 $$ LANGUAGE sql;
 
 

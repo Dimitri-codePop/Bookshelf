@@ -8,7 +8,7 @@ const insertSchema = Joi.object({
     page_count: Joi.number().integer().required().min(10),
     chapter_count: Joi.number().integer().required().min(2),
     front_cover: Joi.string().required().min(2),
-    cover: Joi.string().uri(),
+    //cover: Joi.string().uri(),
     publisher_id: Joi.number().integer().required().min(1),
     genre_id: Joi.array().items(Joi.number().integer()).required().min(1),
     author_id: Joi.array().items(Joi.number().integer()).required().min(1)
